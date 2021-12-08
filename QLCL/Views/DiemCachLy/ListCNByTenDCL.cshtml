@@ -3,7 +3,7 @@
 *@
 @{
 }
-@model List<QLCL.Models.CongNhanModels>
+@model List<object>
 <table border="1">
     <tr>
         <th>Mã công nhân</th>
@@ -14,8 +14,8 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.MaCongNhan</td>
-            <td>@item.TenCongNhan</td>
+            <td>@item.GetType().GetProperty("MaCongNhan").GetValue(item, null)</td>
+            <td>@item.GetType().GetProperty("TenCongNhan").GetValue(item, null)</td>
             <td>
                 <a href="/CongNhan/CongNhanDelete">Delete</a>
                 <a href="/CongNhan/CongNhanView">View</a>

@@ -10,5 +10,7 @@ namespace QLCL.Models
 		public string MaDiemCL { get; set; }
 		public string TenDiemCL { get; set; }
 		public string DiachiCL { get; set; }
+
+		
 	}
 }

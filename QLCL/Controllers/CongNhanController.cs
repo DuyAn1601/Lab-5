@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using QLCL.Models;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,15 @@ namespace QLCL.Controllers
             DataContext context = HttpContext.RequestServices.GetService(typeof(QLCL.Models.DataContext)) as DataContext;
             return View(context.Lietketrieuchung(stc));
             
+
         }
+
+        public IActionResult ListCNByTenDCL(string MaDiemCL)
+        {
+            DataContext context = HttpContext.RequestServices.GetService(typeof(QLCL.Models.DataContext)) as DataContext;
+            ViewData["MaCongNhan"] = new SelectList(context.ListCNByTenDCL(), "MaCongNhan", "TenCongNhan");
+            return View();
+        }
+
     }
 }

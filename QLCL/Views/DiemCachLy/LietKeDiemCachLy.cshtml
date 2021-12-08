@@ -3,14 +3,14 @@
 *@
 @{
 }
-@model List<QLCL.Models.DiemCachLyModels>
-<form  method="post">
-    Tên điểm cách ly
-    <select name="MaDiemCL" id="MaDiemCL">
-        @foreach (var item in Model)
-        {
-        <option value="@item.MaDiemCL">@item.TenDiemCL</option>
-        }
-    </select><br>
-    <input type="submit" value="Liệt kê" name="submit" id="Liet ke" />
-</form>
+@model QLCL.Models.DiemCachLyModels
+<div class="container">
+    <form action="/DiemCachLy/ListCNByTenDCL" method="post">
+        <div class="form-group">
+            <label asp-for="MaDiemCL" class="control-label"></label>
+            <select asp-for="MaDiemCL" class="form-control" asp-items="ViewBag.MaDiemCL"> </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Liệt Kê</button> 
+    </form>
+</div>
+
